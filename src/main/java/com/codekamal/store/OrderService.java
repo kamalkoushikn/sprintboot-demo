@@ -1,5 +1,9 @@
 package com.codekamal.store;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+@Service
 public class OrderService {
 
     private PaymentService paymentService;
@@ -10,7 +14,11 @@ public class OrderService {
 
 
     public void placeOrder(){
-        var paymentService = new StripePaymentService();
+//        var paymentService = new PayPalPaymentService();
         paymentService.processPayment(10);
+    }
+
+    public void setPaymentService(PaymentService paymentService) {
+        this.paymentService = paymentService;
     }
 }
